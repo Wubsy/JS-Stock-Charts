@@ -9,13 +9,19 @@ const WSBasePrefix = 'wss://ws.twelvedata.com/'
 const APISortTime = 'time_series?'
 const APISymbolPrefix = 'symbol='
 
+//For public deployment - get user's api key
+let apiKey = window.prompt("Enter YOUR API key", getAPIKey())
+
 async function main() {
+
+
+
     const timeChartCanvas = document.querySelector('#time-chart');
     const highestPriceChartCanvas = document.querySelector('#highest-price-chart');
     const averagePriceChartCanvas = document.querySelector('#average-price-chart');
 
     //API key is given by an external file as I will not be including it in version control (GitHub) for the sake of security
-    const resp = await fetch(APIBasePrefix+APISortTime+APISymbolPrefix+"GME,MSFT,DIS,BNTX&interval=1min&apikey="+getAPIKey())
+    const resp = await fetch(APIBasePrefix+APISortTime+APISymbolPrefix+"GME,MSFT,DIS,BNTX&interval=1min&apikey="+apiKey)
 
     let result = await resp.json()
     console.log(result)
