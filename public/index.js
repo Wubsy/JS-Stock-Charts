@@ -10,7 +10,7 @@ const APISortTime = 'time_series?'
 const APISymbolPrefix = 'symbol='
 
 //For public deployment - get user's api key
-let apiKey = window.prompt("Enter YOUR API key", getAPIKey())
+let apiKey = window.prompt("Enter YOUR API key", "")
 
 async function main() {
 
