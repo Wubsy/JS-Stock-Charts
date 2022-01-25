@@ -17,8 +17,12 @@ async function main() {
     //API key is given by an external file as I will not be including it in version control (GitHub) for the sake of security
     const resp = await fetch(APIBasePrefix+APISortTime+APISymbolPrefix+"GME,MSFT,DIS,BNTX&interval=1min&apikey="+getAPIKey())
 
-    const result = await resp.json()
+    let result = await resp.json()
     console.log(result)
+
+    //Use mockdata instead
+    result = JSON.stringify(mockData)
+    result = JSON.parse(result)
 
     const { GME, MSFT, DIS, BNTX } = result;
     const stocks = [GME, MSFT, DIS, BNTX];
