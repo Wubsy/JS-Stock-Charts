@@ -14,6 +14,7 @@ async function main() {
     const highestPriceChartCanvas = document.querySelector('#highest-price-chart');
     const averagePriceChartCanvas = document.querySelector('#average-price-chart');
 
+    //API key is given by an external file as I will not be including it in version control (GitHub) for the sake of security
     const resp = await fetch(APIBasePrefix+APISortTime+APISymbolPrefix+"GME,MSFT,DIS,BNTX&interval=1min&apikey="+getAPIKey())
 
     const result = await resp.json()
